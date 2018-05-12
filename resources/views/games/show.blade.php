@@ -40,11 +40,6 @@
     <div class="card bg-dark">
         <h3 class="card-title">{{ $game->title}}</h3>
         <h3 class="card-text">{{$game->body}}</h3>
-        <div class="row">
-            <div class="col-sm-2">
-                <a class="btn btn-danger" href="/games/delete/{{$game->id}}">Delete</a>
-            </div>
-        </div>
     </div>
     <hr>
     <div class="comments">

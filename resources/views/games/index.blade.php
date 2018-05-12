@@ -13,6 +13,9 @@
     @foreach ($games as $game)
     <div class="card bg-dark mb-3">
         <div class="card-header">
+            @hasanyrole('admin')
+            <a class="btn btn-sm btn-danger float-right" href="/games/delete/{{ $game->id }}">Delete</a>
+            @endhasanyrole
             <h3 class="card-title">{{ $game->title }}</h3>
             <div class="card-body">
                 <div class="row">

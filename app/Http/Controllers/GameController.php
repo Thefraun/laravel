@@ -74,10 +74,18 @@ class GameController extends Controller
 
     public function destroy(Game $game)
     {
-    	$file = 'public/' . $game->image;
-    	Storage::delete($file);
-    	Game::destroy($game->id);
+    	foreach ($game->images as $file)
+        {
+            $path ='public/' . $file->path;
+            $origPath = 'public/' . $file->origPath;
+            Storage::delete($path);
+            Storage::delete($origPath);
 
-    	return redirect('/games');
+            GameImage::destroy($file->id);
+        }
+
+        Game::destroy($game->id);
+
+        return back();
     }
 }
