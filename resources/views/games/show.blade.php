@@ -39,7 +39,7 @@
     </div>
     <div class="card bg-dark">
         <h3 class="card-title">{{ $game->title}}</h3>
-        <h3 class="card-text">{{$game->body}}</h3>
+        <h3 class="card-text">{{!! nl2br($game->body) !!}}</h3>
     </div>
     <hr>
     <div class="comments">
@@ -64,19 +64,19 @@
             <div class="col-sm-8">
                 <div class="card bg-dark">
                     <div class="card-block">
-                        @if (Route::has('login')) @auth
+                        @if (Route::has('Login')) @auth
                         <form action="/games/{{ $game->id}}/comments" method="POST">
                             {{csrf_field()}}
                             <div class="form-group p-2">
-                                <textarea name="body" class="form-control" placeholder="something to say?"></textarea>
+                                <textarea name="body" class="form-control" placeholder="Something To Say?"></textarea>
                             </div>
                             <div class="form-group text-right p-2">
-                                <button class="btn btn-success" type="submit">add comment</button>
+                                <button class="btn btn-success" type="submit">Add comment</button>
                             </div>
                         </form>
                         @else
                         <div class="p-3 text-center">
-                            <a class="btn btn-success" href="/login">login to comment</a>
+                            <a class="btn btn-success" href="/login">Login To Comment</a>
                         </div>
                         @endauth @endif
                     </div>

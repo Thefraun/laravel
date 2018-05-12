@@ -26,7 +26,7 @@
                     @endif @endforeach
                     <div class="col-sm-8">
                         <p class="card-text">
-                            {{ $game->body }}
+                            {{ str_limit($game->body, 500, '...') }}
                         </p>
                         <a href="/games/{{ $game->id }}" class="btn btn-success">
                         Read More
