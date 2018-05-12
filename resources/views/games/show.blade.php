@@ -1,16 +1,49 @@
 @extends('layouts.master') @section('content')
 <div class="container">
     <h1 class="text-center"> Review </h1>
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="carousel slide" id="carousel" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    @foreach ($game->images as $image) @if ($loop->first)
+                    <li class="active" data-target="#carousel" data-slide-to="{{ $loop->index }}"></li>
+                    @else
+                    <li data-target="#carousel" data-slide-to="{{ $loop->index }}"></li>
+                    @endif @endforeach
+                </ol>
+                <div class="carousel-inner">
+                    @foreach ($game->images as $image) @if ($loop->first)
+                    <div class="carousel-item active">
+                        <a href="/storage/{{ $image->origPath }}">
+                            <img src="/storage/{{ $image->path }}" alt="" class="d-block w-100">
+                        </a>
+                    </div>
+                    @else
+                    <div class="carousel-item">
+                        <a href="/storage/{{ $image->origPath }}">
+                            <img src="/storage/{{ $image->path }}" alt="" class="d-block w-100">
+                        </a>
+                    </div>
+                    @endif @endforeach
+                </div>
+                <a href="#carousel" class="carousel-control-prev" role="button" data-slide="next">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a href="#carousel" class="carousel-control-next" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
     <div class="card bg-dark">
-        @if (!empty($game->image))
-    	<img class="card-img-top" src="/storage/{{ $game->image }}">
-        @endif
         <h3 class="card-title">{{ $game->title}}</h3>
         <h3 class="card-text">{{$game->body}}</h3>
         <div class="row">
-        	<div class="col-sm-2">
-            <a class="btn btn-danger" href="/games/delete/{{$game->id}}">Delete</a>
-        </div>
+            <div class="col-sm-2">
+                <a class="btn btn-danger" href="/games/delete/{{$game->id}}">Delete</a>
+            </div>
         </div>
     </div>
     <hr>
@@ -20,7 +53,8 @@
             <div class="col-sm-8">
                 <div class="card bg-dark">
                     <div class="card-title p-2">
-                        {{ \App\User::find($comment->user_id)->name }}<br>
+                        {{ \App\User::find($comment->user_id)->name }}
+                        <br>
                         <span class="small">{{ $comment->created_at->diffForHumans() }}</span>
                     </div>
                     <div class="card-block p-2">
@@ -49,8 +83,7 @@
                         <div class="p-3 text-center">
                             <a class="btn btn-success" href="/login">login to comment</a>
                         </div>
-                        @endauth
-                        @endif
+                        @endauth @endif
                     </div>
                 </div>
             </div>
