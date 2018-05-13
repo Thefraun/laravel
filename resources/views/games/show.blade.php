@@ -37,7 +37,7 @@
             </div>
         </div>
     </div>
-    <div class="card bg-dark">
+    <div class="card bg-dark p-3">
         <h3 class="card-title">{{ $game->title}}</h3>
         <h3 class="card-text">{{ ($game->body) }}</h3>
     </div>
