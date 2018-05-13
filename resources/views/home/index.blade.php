@@ -38,7 +38,7 @@
         </div>
     </div>
     <div class="container mt-5">
-      <h2>Welcome To The thefraun.com</h2>
+      <h2>Welcome To thefraun.com</h2>
       <p>
           Hello fellow humans, you've stumbled upon a game reviewing website. This is a site completely
         dedicated to opinions, so yell away in the comments! This a hobby, so do not expect things all
