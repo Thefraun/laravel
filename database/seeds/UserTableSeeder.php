@@ -18,6 +18,10 @@ class UserTableSeeder extends Seeder
         	'name' => 'admin',
         	'guard_name' => 'web',
         ]);
+        DB::table('roles')->insert([
+            'name' => 'user',
+            'guard_name' => 'web',
+        ]);
         DB::table('users')->insert([
         	'name' => 'logan',
         	'email' => 'logan@ratpackstudios.com',
