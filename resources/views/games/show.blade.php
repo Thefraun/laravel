@@ -47,7 +47,7 @@
         <div class="row mb-2 justify-content-center">
             <div class="col-sm-8">
                 <div class="card bg-dark">
-                    <div class="card-title p-2">
+                    <div style="text-transform: capitalize;" class="card-title p-2">
                         {{ \App\User::find($comment->user_id)->name }}
                         <br>
                         <span class="small">{{ $comment->created_at->diffForHumans() }}</span>
