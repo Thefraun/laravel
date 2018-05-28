@@ -2,7 +2,7 @@
 <div class="container">
     <h1 class="text-center"> Review </h1>
     <div class="row justify-content-center">
-        <div class="col-lg-6">
+        <div class="col-lg-8">
             <div class="carousel slide" id="carousel" data-ride="carousel">
                 <ol class="carousel-indicators">
                     @foreach ($game->images as $image) @if ($loop->first)
@@ -39,7 +39,7 @@
     </div>
     <div class="card bg-dark p-3">
         <h3 class="card-title">{{ $game->title}}</h3>
-        <h3 class="card-text">{{ ($game->body) }}</h3>
+        <h3 class="card-text"> {!! nl2br(e($game->body)) !!} </h3>
     </div>
     <hr>
     <div class="comments">

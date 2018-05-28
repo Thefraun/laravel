@@ -52,7 +52,7 @@ class GameController extends Controller
                 $fileName = md5(microtime()) . $ext;
                 $path = "games/" . $game->id . "/" . $fileName;
                 $origPath = "games/" . $game->id . "orig/" . $fileName;
-                $img = Image::make($file)->fit(640, 480, function ($constraint) {
+                $img = Image::make($file)->fit(700, 600, function ($constraint) {
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 })->encode('jpg', 75);
