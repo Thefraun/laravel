@@ -38,7 +38,7 @@
         </div>
     </div>
     <div class="card bg-dark p-3">
-        <h3 class="card-title">{{ $game->title}}</h3>
+        <h3 class="card-title text-center">{{ $game->title}}</h3>
         <h3 class="card-text"> {!! nl2br(e($game->body)) !!} </h3>
     </div>
     <hr>
