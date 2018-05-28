@@ -14,7 +14,7 @@
                 @if ($loop->first)
                 <div class="carousel-item active">
                     <div class="card">
-                        @foreach ($game->images as $image)
+                        @foreach ($game->images->take(1) as $image)
                         <img src="/storage/{{ $image->path }}" alt="{{ $game->name }}" class="card-img-top">
                         @endforeach
                         <h4 class="card-title text-center" style="color:black">
@@ -25,7 +25,7 @@
                 @else
                 <div class="carousel-item">
                 <div class="card">
-                    @foreach ($game->images as $image)
+                    @foreach ($game->images->take(1) as $image)
                         <img src="/storage/{{ $image->path }}" alt="{{ $game->name }}" class="card-img-top">
                         @endforeach
                         <h4 class="card-title text-center" style="color:black">
