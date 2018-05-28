@@ -1,6 +1,8 @@
 @extends('layouts.master') @section('content')
 <main role="main">
     <div class="container mt-3">
+        <div class="row justify-content-center">
+        <div class="col-lg-7">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -8,24 +10,31 @@
                 <li data-target="#myCarousel" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
+                @foreach ($games->take(3) as $game)
+                @if ($loop->first)
                 <div class="carousel-item active">
-                    <img class="first-slide" src="http://via.placeholder.com/1100x350" alt="First slide">
-                    <div class="container">
-                        Game 1
+                    <div class="card">
+                        @foreach ($game->images as $image)
+                        <img src="/storage/{{ $image->path }}" alt="{{ $game->name }}" class="card-img-top">
+                        @endforeach
+                        <h4 class="card-title text-center" style="color:black">
+                            {{ $game->title }}
+                        </h4>
                     </div>
                 </div>
+                @else
                 <div class="carousel-item">
-                    <img class="second-slide" src="http://via.placeholder.com/1100x350" alt="Second slide">
-                    <div class="container">
-                        Game 2
+                <div class="card">
+                    @foreach ($game->images as $image)
+                        <img src="/storage/{{ $image->path }}" alt="{{ $game->name }}" class="card-img-top">
+                        @endforeach
+                        <h4 class="card-title text-center" style="color:black">
+                            {{ $game->title }}
+                        </h4>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <img class="third-slide" src="http://via.placeholder.com/1100x350" alt="Third slide">
-                    <div class="container">
-                        Game 3
-                    </div>
-                </div>
+                @endif
+                @endforeach
             </div>
             <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -36,6 +45,8 @@
           <span class="sr-only">Next</span>
         </a>
         </div>
+    </div>
+</div>
     </div>
     <div class="container mt-5">
       <h2>Welcome To thefraun.com</h2>
